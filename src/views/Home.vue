@@ -786,18 +786,19 @@ export default {
 .nav-list {
   list-style: none;
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 5px;
+  flex-wrap: nowrap;
   padding: 0;
   margin: 0;
+  white-space: nowrap;
 }
 
 /* 响应式横幅 */
 .banner {
   position: relative;
   width: 100%;
-  height: auto;
+  height: auto; /* 恢复桌面端的自动高度 */
   min-height: 200px;
   max-height: 460px;
   margin-bottom: 30px;
@@ -808,7 +809,8 @@ export default {
 .banner-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* 确保图片填充整个区域 */
+  object-position: center; /* 居中显示 */
 }
 
 /* 响应式分类标签 */
@@ -977,9 +979,7 @@ export default {
   }
   
   .nav-list {
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
+    overflow-x: auto;
   }
   
   .nav-item {
@@ -998,8 +998,8 @@ export default {
   }
   
   .artifacts-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
+    grid-template-columns: repeat(2, 1fr); /* 每行显示两个图片 */
+    gap: 10px; /* 减小间距 */
   }
   
   .pagination {
@@ -1023,6 +1023,10 @@ export default {
   
   .captcha-image {
     width: 100%;
+  }
+  
+  .banner {
+    height: 150px; /* 在手机端设置较小的高度 */
   }
 }
 
@@ -1108,9 +1112,9 @@ export default {
 .nav-item {
   color: #fff;
   text-decoration: none;
-  padding: 6px 15px;
+  padding: 6px 8px;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 12px;
   transition: all 0.3s ease;
   position: relative;
 }
